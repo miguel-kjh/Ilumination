@@ -27,8 +27,7 @@ void draw(){
   setLighting();
   scene.createScene();
   camera.setCamera();
-  keyController.moveScreen();
-  
+  keyController.moveScreen();  
 }
 
 void setLighting(){

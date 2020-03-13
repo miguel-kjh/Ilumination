@@ -9,7 +9,7 @@ public class Scene {
   }
   
   private void createBox(){
-    int dim    = 100;
+    int dim    = 50;
     int maxZ   = -5000;
     for(int box = 0; box < countBoxes; box++){
       IndustrialBoxes industrialBoxes;
