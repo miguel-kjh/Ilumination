@@ -18,8 +18,7 @@ public class IndustrialBoxes {
   }
   
   @Override
-  public boolean equals(Object obj){  
-    
+  public boolean equals(Object obj){   
     if (!(obj instanceof IndustrialBoxes)) return false;
     IndustrialBoxes box = (IndustrialBoxes) obj;
     return localitation.equals(box.localitation); 
