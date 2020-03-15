@@ -2,7 +2,7 @@ public class KeyController{
   private boolean[] keyPosibles;
   
   public KeyController(){
-    keyPosibles = new boolean[11];
+    keyPosibles = new boolean[9];
   }
   
   public void updateKeysPressed(){
@@ -27,17 +27,11 @@ public class KeyController{
       if(keyCode == LEFT ){
         keyPosibles[6] = true;
       }
-      if(key == 'o' || key == 'O'){
+      if(key == 'w' || key == 'W'){
         keyPosibles[7] = true;
       }
-      if(key == 'p' || key == 'P'){
-        keyPosibles[8] = true;
-      }
-      if(key == 'w' || key == 'W'){
-        keyPosibles[9] = true;
-      }
       if(key == 's' || key == 'S'){
-        keyPosibles[10] = true;
+        keyPosibles[8] = true;
       }
   }
   
@@ -64,17 +58,11 @@ public class KeyController{
       if(keyCode == LEFT ){
         keyPosibles[6] = false;
       }
-      if(key == 'o' || key == 'O'){
+      if(key == 'w' || key == 'W'){
         keyPosibles[7] = false;
       }
-      if(key == 'p' || key == 'P'){
-        keyPosibles[8] = false;
-      }
-      if(key == 'w' || key == 'W'){
-        keyPosibles[9] = false;
-      }
       if(key == 's' || key == 'S'){
-        keyPosibles[10] = false;
+        keyPosibles[8] = false;
       }
   }
   
@@ -104,15 +92,9 @@ public class KeyController{
               camera.moveCenterX(Direction.POSITIVE);
               break;
             case 7:
-              camera.moveAngule(Direction.POSITIVE);
-              break; 
-            case 8:
-              camera.moveAngule(Direction.NEGATIVE);
-              break;
-            case 9:
               camera.moveZoom(Direction.NEGATIVE);
               break;
-            case 10:
+            case 8:
               camera.moveZoom(Direction.POSITIVE);
               break;
             default:

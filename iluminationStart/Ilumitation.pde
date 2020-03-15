@@ -1,6 +1,7 @@
 public class Ilumination{
   private PVector eye;
   private PVector center;
+  private PVector vectorColor;
   private int concentration;
   private Lamp lamp;
   
@@ -8,6 +9,7 @@ public class Ilumination{
   public Ilumination(){
     this.eye              = camera.getEye();
     this. center          = camera.getCenter();
+    this.vectorColor      = new PVector(255,255,255);
     this.concentration    = 5;
     this.lamp             = new Lamp(midWidth,midHeight,midHeight/tan(PI*30.0/180.0) + 150,45);
   }
@@ -23,10 +25,10 @@ public class Ilumination{
     PVector loc = lamp.getLocalitaion();
     int zoom = 200;
     if(loc.z > 0){
-      pointLight(247, 247, 100,loc.x,loc.y,loc.z - zoom);
+      pointLight(vectorColor.x, vectorColor.y, vectorColor.z,loc.x,loc.y,loc.z - zoom);
       //directionalLight(255,255,255,loc.x,loc.y,loc.z - zoom);
     } else {
-      pointLight(247, 247, 100,loc.x,loc.y,loc.z + zoom);
+      pointLight(vectorColor.x, vectorColor.y, vectorColor.z,loc.x,loc.y,loc.z + zoom);
       //directionalLight(255,255,255,loc.x,loc.y,loc.z + zoom);
     }
     lamp.createLamp();
@@ -38,6 +40,9 @@ public class Ilumination{
   
   public void changeLamp(){
     lamp.rotateLamp();
+    vectorColor.x = random(50,255);
+    vectorColor.y = random(50,255);
+    vectorColor.z = random(50,255);
   }
 }
 
@@ -45,7 +50,7 @@ public class Lamp {
   private PVector localitation;
   private PShape  pshape;
   private float initialZ;
-  private final String texturePath = "texture/ligth.jpg";
+  private final String texturePath = "texture/descarga.jpeg";
   private int countClic            = 0;
 
   
@@ -53,6 +58,7 @@ public class Lamp {
     localitation = new PVector(x,y,z);
     pshape       = createShape(SPHERE, dimension);
     pshape.setTexture(loadImage(texturePath));
+    pshape.setStroke(false);
     initialZ     = z;
   }
   
@@ -70,7 +76,7 @@ public class Lamp {
   public void rotateLamp(){
     switch(countClic){
       case 0: 
-        localitation.x = initialZ;
+        localitation.x = width;
         localitation.z = 0;
         countClic++;
         break;
@@ -81,7 +87,7 @@ public class Lamp {
         break;
       case 2:
         localitation.z = 0;
-        localitation.x = -initialZ;
+        localitation.x = 0;
         countClic++;
         break;
       case 3:

@@ -11,7 +11,6 @@ public class CameraController {
   
   private final float initialYaw      = -90;
   private final float initialPitch    = 0;
-  private final float initialRoll     = 0;
   private final float speed           = 5;
   private final float increaseAngules = 2;
   
@@ -24,7 +23,6 @@ public class CameraController {
     this.initialCameraUp = cameraUp.copy();
     this.yaw             = initialYaw;
     this.pitch           = initialPitch;
-    this.roll            = initialRoll;
   }
   
   public void setCamera(){
@@ -74,17 +72,6 @@ public class CameraController {
     updateDirectorVector();
   }
   
-  public void moveAngule(Direction direction){
-    if(direction == Direction.NEGATIVE) {
-      roll -= increaseAngules;
-    } else {
-      roll += increaseAngules;
-    }
-    if(abs(roll) >= 360) roll = 0;
-    cameraUp.x = sin(radians(roll));
-    cameraUp.y = cos(radians(roll));
-  }
-  
   public void moveZoom(Direction direction){
     PVector aux = new PVector(center.x*speed, center.y*speed, center.z*speed);
     if(direction == Direction.NEGATIVE) {
@@ -102,7 +89,6 @@ public class CameraController {
     
     yaw     = initialYaw;
     pitch   = initialPitch;
-    roll    = initialRoll;
     
     cameraUp.set(initialCameraUp.x,initialCameraUp.y,initialCameraUp.z);
     center.set(initialCenter.x,initialCenter.y,initialCenter.z);
