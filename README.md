@@ -12,15 +12,15 @@ Correo: miguel.medina108@alu.ulpgc.es
 4. [Implementación](#implementación)<br>
  4.1. [Diseño de clases](#diseño-de-clases)<br>
  4.2. [Iluminación](#iluminación)<br>
- 4.3. [Modelo de camara](#modelo-de-camara)<br>
-    &nbsp;4.3.1. [Movimiento](#movimiento)<br>
-    &nbsp;4.3.2. [Rotaciones](#rotaciones)<br>
-    &nbsp;4.3.3. [Ángulo de Euler](#ángulos-de-euler)<br>
+ 4.3. [Modelo de cámara](#modelo-de-cámara)<br>
+    &nbsp;&nbsp;4.3.1. [Movimiento](#movimiento)<br>
+    &nbsp;&nbsp;4.3.2. [Rotaciones](#rotaciones)<br>
+    &nbsp;&nbsp;4.3.3. [Ángulo de Euler](#ángulos-de-euler)<br>
 5. [Eventos y Controles](#eventos-y-controles)
 6. [Bibliografía](#bibliografía)
 
 ## Introducción
-El objetivo de esta práctica es componer una escena con objetos 3D, texturas,una cámara y una iluminación acorde. Para cumplir los objetivos se ha optado por componer una escena sencilla y jugar con los tipos de luces que nos ofrece processing. Aparte el sistema de cámara es igual al de la práctica anterior a excepción de que no se puede rotar la camara sobre el ángulo *roll*.
+El objetivo de esta práctica es componer una escena con objetos 3D, texturas,una cámara y una iluminación acorde. Para cumplir los objetivos se ha optado por componer una escena sencilla y jugar con los tipos de luces que nos ofrece processing. Aparte el sistema de cámara es igual al de la práctica anterior a excepción de que no se puede rotar la cámara sobre el ángulo *roll*.
 
 La escena que se ha creado es sencilla se trata de un sistemas de cajas iluminadas por una fuente de luz que simula ser una lámpara, esta fuente se puede rotar por el sistema de cajas para ver el efecto de una luz en un punto dado, además se han usado diversas primitivas de luces para tener la sensación de una vez se apague esa fuente de luz disponer de una linterna donde su origen será la propia cámara.
 
@@ -44,9 +44,21 @@ Se ha optado por un diseño de clases sencillo.
 </p>
 
 ### Iluminación
+Para probar las utilidades de processing con respectos a la iluminación se ha planteado un escenario en el que se juega con ella de diferentes formas: en el punto donde iluminar a los objetos, los colores posibles para las luces y la interacción de una cámara con la luz para intentar hacer una linterna.
+
+Se plantean dos modos de luces: el primero es donde el sistema de cajas está iluminado gracias a un foco de luz cercano y el segundo es cuando el foco de luz pasa a la cámara y se crea una ilusión de linterna con la que se puede explorar las cajas con el grado de potencia que se desee.
+ 
+Se han usado las siguientes funciones:
+ 
+ * **ambientLight**: para crear una luz ambiente oscura que se ve refozada gracias al fondo negro.
+ * **lightSpecular**: Establece el color especular para las luces.
+ * **spotLight**: Para agregar un foco de luz, así poder implementar la linterna que se mueve segun la camara.
+ * **pointLight**: Para añadir un punto de luz concreto en vez que en el infinito.
+ 
+Asimismo se han planteado diferentes colores para las luces que se elegirán aleatoriamente cuando el usuario haga clic.
 
 
-### Modelo de camara
+### Modelo de cámara
 El modelo que se busca es tener una cámara en **primera persona**, para ello el método *camera* nos ofrece tres puntos para controlar:
  
  * **eye**: Coordenadas para controlar la posición del ojo con respecto al sistema observable.
@@ -169,7 +181,7 @@ Cada uno de los ángulos de Euler está representado por un solo valor y con la 
     <td>Para encender la linterna</td>
   </tr>
   <tr>
-    <td>Clic derecho para rotar la lampara</td>
+    <td>Clic derecho para rotar la lámpara</td>
     <td>Para encender la linterna</td>
   </tr>
 </table>
