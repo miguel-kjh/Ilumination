@@ -26,10 +26,8 @@ public class Ilumination{
     int zoom = 200;
     if(loc.z > 0){
       pointLight(vectorColor.x, vectorColor.y, vectorColor.z,loc.x,loc.y,loc.z - zoom);
-      //directionalLight(255,255,255,loc.x,loc.y,loc.z - zoom);
     } else {
       pointLight(vectorColor.x, vectorColor.y, vectorColor.z,loc.x,loc.y,loc.z + zoom);
-      //directionalLight(255,255,255,loc.x,loc.y,loc.z + zoom);
     }
     lamp.createLamp();
   }
